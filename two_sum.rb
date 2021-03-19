@@ -14,34 +14,41 @@ arr = [0, 1, 5, 7]
 # p bad_two_sum?(arr, 10) # => should be false
 
 def okay_two_sum?(arr, target)
-    sorted = arr.sort
-    i = 0
-    k = arr.length - 1
-    while i < k
-        if target > arr[i] + arr[k]
-            i += 1
-        elsif target < arr[i] + arr[k]
-            k -= 1
+    sorted = arr.sort # O(n^2)
+    i = 0 # O(1)
+    k = arr.length - 1 # O(1)
+    while i < k # O(n)
+        if target > arr[i] + arr[k] # O(1)
+            i += 1 # O(1)
+        elsif target < arr[i] + arr[k] # O(1)
+            k -= 1 # O(1)
         else
-            return true
+            return true # O(1)
         end
     end
-    return false
+    return false # O(1)
+end
+
+# O(n^2)
+
+# arr = [0, 1, 5, 7]
+
+# p okay_two_sum?(arr, 6) # => should be true
+# p okay_two_sum?(arr, 10) # => should be false
+
+
+def two_sum?(arr, target)
+    hash = {}
+
+    arr.each do |ele|
+        return true if hash.has_key?(target - ele)
+        hash[ele] = true 
+    end
+
+    false
 end
 
 
 arr = [0, 1, 5, 7]
-p okay_two_sum?(arr, 6) # => should be true
-p okay_two_sum?(arr, 10) # => should be false
-
-
-
-
-
-# arr = [0, 1, 5, 7]
-# two_sum?(arr, 6) # => should be true
-# two_sum?(arr, 10) # => should be false
-
-# arr = [0, 1, 5, 7]
-# two_sum?(arr, 6) # => should be true
-# two_sum?(arr, 10) # => should be false
+p two_sum?(arr, 6) # => should be true
+p two_sum?(arr, 10) # => should be false
