@@ -73,21 +73,21 @@ list = [5, 3, -7]
 # end
 
 def largest_subsum(list)
-    max = list[0] 
-    current_sum = list[0]
+    max = list[0] # O(1)
+    current_sum = list[0] # O(1)
 
-    (1...list.length).each do |i|
+    (1...list.length).each do |i| # O(n)
         # debugger
-        if current_sum < 0
-            current_sum = 0
-        end
-        current_sum += list[i]
-        if current_sum > max
-            max = current_sum
+        if current_sum < 0 # O(1)
+            current_sum = 0 # O(1)
+        end 
+        current_sum += list[i] # O(1)
+        if current_sum > max # O(1)
+            max = current_sum # O(1)
         end
     end
 
-    max
+    max # O(1)
 
 end
 
@@ -99,3 +99,4 @@ p largest_subsum(list) # => 8 (from [7, -6, 7])
 
 list = [-5, -1, -3]
 p largest_subsum(list) # => -1 (from [-1])
+
