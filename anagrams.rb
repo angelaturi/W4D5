@@ -17,18 +17,20 @@ end
 #0(n!)
 
 def second_anagram?(str1, str2)
-    return false if str1.length != str2.length 
-    (0...str1.length).each do |i|
-        if str2.include?(str1[i])
-            str2.delete!(str1[i])
+    return false if str1.length != str2.length #0(1)
+    (0...str1.length).each do |i| #0(n)
+        if str2.include?(str1[i]) #0(1)
+            str2.delete!(str1[i]) #0(1)
         end
     end
-    if str2.length == 0
-        return true 
+    if str2.length == 0 #0(1)
+        return true  #0(1)
     else
-        false
+        false #0(1)
     end
 end
+
+#0(n)
 
 # v1
 
@@ -74,13 +76,14 @@ end
 
 
 def fourth_anagram?(str1, str2)
-    hash = Hash.new(0)
+    hash = Hash.new(0) #0(1)
 
-    str1.each_char { |char| hash[char] += 1 }
-    str2.each_char { |char| hash[char] -= 1 }
-    hash.all? { |k,v| v.zero? }
-    
+    str1.each_char { |char| hash[char] += 1 } #0(n)
+    str2.each_char { |char| hash[char] -= 1 } #0(n)
+    hash.all? { |k,v| v.zero? } #0(n)
+
 end
+#0(n)
 
 p first_anagram?("gizmo", "sally")    #=> false
 p first_anagram?("elvis", "lives")    #=> true
