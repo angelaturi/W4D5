@@ -9,15 +9,40 @@ end
 #0(n) * #0(n) * #0(1) + #0(1)
 #0(n^2)
 
-def okay
-
 arr = [0, 1, 5, 7]
 p bad_two_sum?(arr, 6) # => should be true
 p bad_two_sum?(arr, 10) # => should be false
 
-# arr = [0, 1, 5, 7]
-# two_sum?(arr, 6) # => should be true
-# two_sum?(arr, 10) # => should be false
+def okay_two_sum?(arr, target)
+    sorted = arr.sort
+
+    return arr if arr.length < 2
+    sorted.each_with_index do |ele, idx|
+        if target > ele
+            mid = (idx - 1)
+            
+        end
+    end
+
+    if target < arr[mid]
+        return okay_two_sum?(left, target)
+    else
+        res = okay_two_sum?(right, target)
+        if res.nil?
+            nil
+        else
+            (mid + 1) + res
+        end
+    end
+
+    false
+end
+
+
+
+arr = [0, 1, 5, 7]
+p two_sum?(arr, 6) # => should be true
+p two_sum?(arr, 10) # => should be false
 
 # arr = [0, 1, 5, 7]
 # two_sum?(arr, 6) # => should be true
