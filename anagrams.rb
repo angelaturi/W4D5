@@ -76,7 +76,10 @@ end
 def fourth_anagram?(str1, str2)
     hash = Hash.new(0)
 
-    str1.each_char do |
+    str1.each_char { |char| hash[char] += 1 }
+    str2.each_char { |char| hash[char] -= 1 }
+    hash.all? { |k,v| v.zero? }
+    
 end
 
 p first_anagram?("gizmo", "sally")    #=> false
