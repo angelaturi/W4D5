@@ -16,13 +16,7 @@ p bad_two_sum?(arr, 10) # => should be false
 def okay_two_sum?(arr, target)
     sorted = arr.sort
 
-    return arr if arr.length < 2
-    sorted.each_with_index do |ele, idx|
-        if target > ele
-            mid = (idx - 1)
-            
-        end
-    end
+    mid = arr.length / 2
 
     if target < arr[mid]
         return okay_two_sum?(left, target)
