@@ -10,33 +10,33 @@ end
 #0(n^2)
 
 arr = [0, 1, 5, 7]
-p bad_two_sum?(arr, 6) # => should be true
-p bad_two_sum?(arr, 10) # => should be false
+# p bad_two_sum?(arr, 6) # => should be true
+# p bad_two_sum?(arr, 10) # => should be false
 
 def okay_two_sum?(arr, target)
     sorted = arr.sort
-
-    mid = arr.length / 2
-
-    if target < arr[mid]
-        return okay_two_sum?(left, target)
-    else
-        res = okay_two_sum?(right, target)
-        if res.nil?
-            nil
+    i = 0
+    k = arr.length - 1
+    while i < k
+        if target > arr[i] + arr[k]
+            i += 1
+        elsif target < arr[i] + arr[k]
+            k -= 1
         else
-            (mid + 1) + res
+            return true
         end
     end
-
-    false
+    return false
 end
 
 
-
 arr = [0, 1, 5, 7]
-p two_sum?(arr, 6) # => should be true
-p two_sum?(arr, 10) # => should be false
+p okay_two_sum?(arr, 6) # => should be true
+p okay_two_sum?(arr, 10) # => should be false
+
+
+
+
 
 # arr = [0, 1, 5, 7]
 # two_sum?(arr, 6) # => should be true
