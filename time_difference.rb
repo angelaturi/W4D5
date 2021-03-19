@@ -1,3 +1,4 @@
+require "byebug"
 def my_min(arr)
     smallest_num = arr[0] #0(1)
     arr.each_with_index do |ele1, idx1| #0(n)
@@ -76,12 +77,13 @@ def largest_subsum(list)
     current_sum = list[0]
 
     (1...list.length).each do |i|
+        # debugger
+        if current_sum < 0
+            current_sum = 0
+        end
         current_sum += list[i]
         if current_sum > max
             max = current_sum
-        end
-        if current_sum < 0
-            current_sum = 0
         end
     end
 
