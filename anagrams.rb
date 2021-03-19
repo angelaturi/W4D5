@@ -31,7 +31,8 @@ def second_anagram?(str1, str2)
 end
 
 def third_anagram?(str1,str2)
-
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    
 end
 
 
