@@ -33,17 +33,17 @@ end
 list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
 p my_min2(list)  # =>  -5
 
-# def largest_subsum(list)
+def largest_subsum(list)
 
-#     subs = [] # O(1)
-#     (0...list.length).each do |idx1| # O(n)
-#         (idx1...list.length).each do |idx2| # O(n)
-#             subs << list[idx1..idx2] # O(1)
-#         end
-#     end
-#     subs.map {|sub| sub.sum }.max # O(n)
+    subs = [] # O(1)
+    (0...list.length).each do |idx1| # O(n)
+        (idx1...list.length).each do |idx2| # O(n)
+            subs << list[idx1..idx2] # O(1)
+        end
+    end
+    subs.map {|sub| sub.sum }.max # O(n)
 
-# end
+end
 
 # O(1) + O(n) * O(n)* O(1) + O(n)
 
